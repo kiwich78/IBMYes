@@ -41,9 +41,7 @@ install(){
     UUID=$(cat /proc/sys/kernel/random/uuid)
     echo "uuid: " $UUID
     sed -i "s/id\": .*\"/id\": \"$UUID\"/g" ./v2ray/config.json
-    ibmcloud target --cf
-    ibmcloud cf install
-    ibmcloud cf push
+    cf push
     echo "安装完成。"
 }
 
